@@ -1,0 +1,70 @@
+#save-images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 1rem;
+}
+
+/* Default styles for images inside #save-images div */
+#save-images div img {
+    width: 200px;              /* Default width for larger screens */
+    height: 200px;             /* Default height for larger screens */
+    object-fit: cover;         /* Ensures the image fills the area without distortion */
+    transition: all 0.3s ease-in-out; /* Smooth transition when resizing */
+    border-radius: 10px;       /* Adds a subtle rounded corner to images */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Adds a soft shadow for a polished look */
+    cursor: pointer;           /* Indicates the image is interactive */
+}
+
+/* Fullscreen effect when the image is active (clicked) */
+#save-images div img.btnActive {
+    position: fixed;           /* Fix the image to the viewport */
+    top: 0;                   /* Align to the top */
+    left: 0;                  /* Align to the left */
+    width: 100vw;             /* Full viewport width */
+    height: 100vh;            /* Full viewport height */
+    z-index: 1000;            /* Above everything else */
+    margin: 0;
+    border-radius: 0;         /* Remove rounded corners */
+    box-shadow: none;         /* Remove shadow for fullscreen look */
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background for better visibility */
+    /* overflow: hidden; */         /* Prevent scrolling */
+    object-fit: contain;
+}
+
+/* Ensure the active image maintains aspect ratio */
+#save-images div img.btnActive {
+    max-width: 100%;          /* Ensure it doesn't overflow horizontally */
+    max-height: 100%;         /* Ensure it doesn't overflow vertically */    
+}
+
+@media (max-width: 768px) {
+    #save-images{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* Media queries for responsive image sizes */
+@media (max-width: 768px) {
+    #save-images div img {
+        width: 100px;          /* Smaller size for tablets */
+        height: 100px;
+        /* object-fit: contain; */
+    }
+}
+
+
+@media (max-width: 480px) {
+    #save-images  {
+        display: flex; 
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    #save-images div img {
+        width: 80px;           /* Smaller size for mobile phones */
+        height: 80px;
+    }
+}
